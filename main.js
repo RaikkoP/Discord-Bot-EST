@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import MainClient from './bot/client.js';
-import Commands from './bot/commands.js';
+import Commands from './bot/commands/commands.js';
 dotenv.config(); 
 
 let commands = new Commands();

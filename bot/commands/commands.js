@@ -1,10 +1,11 @@
 import { REST, Routes } from "discord.js";
 import dotenv from "dotenv";
-import importedCommands from "./commands/command_imports.js";
+import commandList from './command_list.js';
 dotenv.config();
+
 export default class Commands {
   constructor() {
-    this.commands = importedCommands;
+    this.commands = commandList;
     this.rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
   }
 

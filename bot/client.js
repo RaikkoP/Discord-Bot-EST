@@ -1,15 +1,21 @@
-import { Client , GatewayIntentBits } from 'discord.js';
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+import { Client , GatewayIntentBits, Partials } from 'discord.js';
+const client = new Client({ 
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions],
+    partials: [Partials.Message, Partials.Channel, Partials.Reaction]
+});
 
 export default class MainClient {
-    constructor(commands){
+    constructor(_commands){
         this.client = client;
-        this.commands = commands;
+        this.commands = _commands;
     }
 
     init() {
         
+        // Init all features of the bot
         this.commands.init();
+
+
         // check if client has connected
         client.on('ready', () => {
             console.log(`Logged in as ${client.user.tag}`);
