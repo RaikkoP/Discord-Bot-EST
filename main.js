@@ -1,10 +1,14 @@
 import dotenv from 'dotenv';
 import MainClient from './bot/client.js';
 import Commands from './bot/commands/commands.js';
+import Features from './bot/features/features.js';
+
 dotenv.config(); 
 
 let commands = new Commands();
-let client = new MainClient(commands);
+let features = new Features();
+
+let client = new MainClient(commands, features);
 
 client.init();
 
