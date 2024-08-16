@@ -1,28 +1,20 @@
 import dotenv from 'dotenv';
+import MainClient from './bot/client.js';
+import Commands from './bot/commands.js';
 dotenv.config(); 
 
-// Import commands and refresh
-import { createCommands } from './commands/commands.js';
+let commands = new Commands();
+let client = new MainClient(commands);
 
-createCommands();
-
-
-// Handle client
-import { Client , GatewayIntentBits } from 'discord.js';
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}`);
-})
+client.init();
 
 
-// Handle command events
-client.on('interactionCreate', async interaction => {
-    if (!interaction.isChatInputCommand()) return;
+// TODO: Check out a way for faster websocket connections
+// TODO: Add options for voice chat but not prio atm
+// TODO: Add GPT functionality for funny chat messages
 
-    if(interaction.commandName === 'test') {
-        await interaction.reply('Test');
-    }
-});
-
-client.login(process.env.TOKEN);
+// TASK: Translation
+// TODO: Get bot to react to messages that are written in english
+// TODO: Make the bot translate the message when the reaction is clicked
+// TODO: Add Google Translate functionality
+// TODO: The bot should then reference the first message and respond with the translated message
