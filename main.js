@@ -1,7 +1,5 @@
 import dotenv from 'dotenv'
 import MainClient from './bot/client.js'
-import Commands from './bot/commands/commands.js'
-import Features from './bot/features/features.js'
 
 dotenv.config()
 
@@ -14,6 +12,7 @@ client.init()
 // TODO: Add GPT functionality for funny chat messages
 
 // TASK: Translation
+// TODO: MAKE BOAT UNDERSTAND THE BRITISH FLAG IS THE ONLY REACTION THAT WE SHOULD TRACK
 // TODO: Get bot to react to messages that are written in english
 // TODO: Make the bot translate the message when the reaction is clicked
 // TODO: Add Google Translate functionality
